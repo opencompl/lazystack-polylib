@@ -258,31 +258,31 @@ static void SMFree (SatMatrix *matrix) {
  *                     count_sat 
  * -------------------------------------------------------------------------
  */
-static int m;			/* number of parameters */
-static int m_dim;		/* dimension of m-face */
-static int n;			/* dimension (not including parameters) */
-static int ws;			/* Working Space size */
-static int nr;			/* (NbRays-1)/32 + 1 */
+static __thread int m;			/* number of parameters */
+static __thread int m_dim;		/* dimension of m-face */
+static __thread int n;			/* dimension (not including parameters) */
+static __thread int ws;			/* Working Space size */
+static __thread int nr;			/* (NbRays-1)/32 + 1 */
 
-static Polyhedron *CEqualities;/* Equalities in the context */
-static SatMatrix   *Sat;       /* Saturation Matrix (row=constraint, col=ray)*/
-static unsigned int *egalite;  /* Bool vector marking constraints in m-face  */
-static Matrix *Xi, *Pi;	       /* Xi and Pi */
-static Matrix *PiTest;	       /* Matrix used to test if Pi is full ranked? */
-static Matrix *CTest;
-static Matrix *PiInv;	       /* Matrix inverse Pi, with the last col of   */
+static __thread Polyhedron *CEqualities;/* Equalities in the context */
+static __thread SatMatrix   *Sat;       /* Saturation Matrix (row=constraint, col=ray)*/
+static __thread unsigned int *egalite;  /* Bool vector marking constraints in m-face  */
+static __thread Matrix *Xi, *Pi;	       /* Xi and Pi */
+static __thread Matrix *PiTest;	       /* Matrix used to test if Pi is full ranked? */
+static __thread Matrix *CTest;
+static __thread Matrix *PiInv;	       /* Matrix inverse Pi, with the last col of   */
 			       /* each line = denominator of the line       */
-static Matrix *RaysDi;	       /* Constraint matrix for computing Di */
+static __thread Matrix *RaysDi;	       /* Constraint matrix for computing Di */
 
-static int KD;			 /* Flag : keep the full domains in memory ? */
+static __thread int KD;			 /* Flag : keep the full domains in memory ? */
 				 /* 1 = yes; 0 = no, keep constraints only   */
 
-static int nbPV;		  /* The number of parameterized vertices */
-static Param_Vertices *PV_Result; /* List of parameterized vertices */
-static Param_Domain *PDomains;    /* List of domains. */
+static __thread int nbPV;		  /* The number of parameterized vertices */
+static __thread Param_Vertices *PV_Result; /* List of parameterized vertices */
+static __thread Param_Domain *PDomains;    /* List of domains. */
 
 #ifdef DEBUGPP
-static int nbfaces;
+static __thread int nbfaces;
 #endif
 
 /*
