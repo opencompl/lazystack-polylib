@@ -98,3 +98,14 @@ testehrhartgmp
 verif_ehrhart32
 verif_ehrhartgmp
 
+
+cln/COPYING
+cln/INSTALL
+compile
+config.guess
+config.sub
+depcomp
+install-sh
+ltmain.sh
+missing
+stamp-h1
